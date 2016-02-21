@@ -26,9 +26,9 @@ namespace LCAPI.JSON
             this.Culture = CultureInfo.InvariantCulture;
         }
 
-        public T Deserialize<T>(IRestResponse response)
+        public T Deserialize<T>(string content)
         {
-            object json = this.FindRoot(response.Content);
+            object json = this.FindRoot(content);
 
             return (T)this.ConvertValue(typeof(T), json);
         }

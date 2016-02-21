@@ -20,7 +20,7 @@ namespace LCAPI.JSON
 {
     public interface IDeserializer
     {
-        T Deserialize<T>(IRestResponse response);
+        T Deserialize<T>(string content);
 
         string RootElement { get; set; }
 

@@ -64,5 +64,57 @@ namespace LendingClub.Models
         /// </summary>
         [DeserializeAs("empLength")]
         public int EmploymentLength { get; set; }
+
+        /// <summary>
+        /// The home ownership status provided by the borrower during registration. Our values are: RENT, OWN, MORTGAGE, OTHER
+        /// </summary>
+        public string HomeOwnership { get; set; }
+
+        /// <summary>
+        /// The annual income provided by the borrower during registration.
+        /// </summary>
+        [DeserializeAs("annualInc")]
+        public decimal AnnualIncome { get; set; }
+
+        /// <summary>
+        /// Indicates if income is verified by LC
+        /// </summary>
+        [DeserializeAs("isIncV")]
+        public string IsIncomeVerified { get; set; }
+
+        /// <summary>
+        /// The date which the borrower accepted the offer
+        /// </summary>
+        [DeserializeAs("acceptD")]
+        public DateTime? AcceptDate { get; set; }
+
+        /// <summary>
+        /// The date the listing will expire
+        /// </summary>
+        [DeserializeAs("expD")]
+        public DateTime ExpireDate { get; set; }
+
+        /// <summary>
+        /// The date which the borrower's application was listed on the platform.
+        /// </summary>
+        [DeserializeAs("listD")]
+        public DateTime ListDate { get; set; }
+
+        /// <summary>
+        /// The date LC pulled credit for this loan
+        /// </summary>
+        [DeserializeAs("creditPullD")]
+        public DateTime? CreditPullDate { get; set; }
+
+        /// <summary>
+        /// The date the loan application was reviewed by LC
+        /// </summary>
+        [DeserializeAs("reviewStatusD")]
+        public DateTime? ReviewDate { get; set; }
+
+        /// <summary>
+        /// The status of the loan during the listing period. Values: APPROVED, NOT_APPROVED.
+        /// </summary>
+        public string ReviewStatus { get; set; }
     }
 }

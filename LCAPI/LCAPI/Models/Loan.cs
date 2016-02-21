@@ -149,7 +149,7 @@ namespace LendingClub.Models
         /// The date and time when the loan will no longer be in the initial listing status. After this date is past, the initialListStatus below will not have any effect and the loan will be treated as a FRACTIONAL loan.
         /// </summary>
         [DeserializeAs("ilsExpD")]
-        public string InitialListingExpireDate { get; set; }
+        public DateTime? InitialListingExpireDate { get; set; }
 
         /// <summary>
         /// The initial listing status of the loan. Possible values are W, F.

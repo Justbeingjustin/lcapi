@@ -10,21 +10,10 @@ namespace LendingClub
         public string InvestorId { get; }
 
         public string Url => $"{BaseUrl}/accounts/{InvestorId}";
-
-        public IDeserializer JsonDeserializer { get; }
-
-        protected RestClient Client { get; }
-
-        private Api()
-        {
-            JsonDeserializer = JsonDeserializer ?? new JsonDeserializer();
-        }
-
-        public Api(string investorId, string apiKey) : this()
+        
+        public Api(string apiKey, string investorId) : base(apiKey)
         {
             InvestorId = investorId;
-
-            Client = new RestClient(JsonDeserializer, apiKey);
         }
 
         protected string SummaryUrl => $"{Url}/summary";
@@ -32,6 +21,10 @@ namespace LendingClub
         public Task<Summary> GetSummaryAsync()
         {
             return Client.GetAsync<Summary>(SummaryUrl);
+        }
+        public Summary GetSummary()
+        {
+            return GetSummaryAsync().Result;
         }
     }
 }

@@ -119,8 +119,9 @@ namespace LCAPI.JSON
         private IDictionary BuildDictionary(Type type, object parent)
         {
             IDictionary dict = (IDictionary) Activator.CreateInstance(type);
-            Type keyType = type.GetGenericArguments()[0];
-            Type valueType = type.GetGenericArguments()[1];
+
+            Type keyType = type.GetTypeInfo().GenericTypeArguments[0];
+            Type valueType = type.GetTypeInfo().GenericTypeArguments[1];
 
             foreach (KeyValuePair<string, object> child in (IDictionary<string, object>) parent)
             {
@@ -160,7 +161,8 @@ namespace LCAPI.JSON
 #else
                 (x => x.GetTypeInfo().IsGenericType && x.GetGenericTypeDefinition() == typeof(IList<>));
 #endif
-            Type itemType = listType.GetGenericArguments()[0];
+
+            Type itemType = listType.GetTypeInfo().GenericTypeArguments[0];
 
             if (parent is IList)
             {
@@ -225,7 +227,7 @@ namespace LCAPI.JSON
                     return null;
                 }
 
-                type = type.GetGenericArguments()[0];
+                type = type.GetTypeInfo().GenericTypeArguments[0];
             }
 
             if (type == typeof(object))
@@ -336,7 +338,7 @@ namespace LCAPI.JSON
 
                 if (genericTypeDef == typeof(IEnumerable<>))
                 {
-                    Type itemType = type.GetGenericArguments()[0];
+                    Type itemType = type.GetTypeInfo().GenericTypeArguments[0];
                     Type listType = typeof(List<>).MakeGenericType(itemType);
                     return this.BuildList(listType, value);
                 }

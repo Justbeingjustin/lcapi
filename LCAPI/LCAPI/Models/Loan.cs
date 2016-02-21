@@ -167,145 +167,145 @@ namespace LendingClub.Models
         /// The Number of accounts on which the borrower is now delinquent.
         /// </summary>
         [DeserializeAs("accNowDelinq")]
-        public int? accNowDelinq { get; set; } //nullable: Yes
+        public int? AccountsNowDelinquent { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of trades opened in past 24 months.
         /// </summary>
         [DeserializeAs("accOpenPast24Mths")]
-        public int accOpenPast24Mths { get; set; } //nullable: Yes
+        public int? AccountsOpenedInPast24Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total open to buy on revolving bankcards.
         /// </summary>
         [DeserializeAs("bcOpenToBuy")]
-        public int bcOpenToBuy { get; set; } //nullable: Yes
+        public int? BankcardOpenToBuy { get; set; } //nullable: Yes
 
         /// <summary>
         /// Percentage of all bankcard accounts > 75% of limit.
         /// </summary>
         [DeserializeAs("percentBcGt75")]
-        public decimal percentBcGt75 { get; set; } //nullable: Yes
+        public decimal? PercentBankcardOver75 { get; set; } //nullable: Yes
 
         /// <summary>
         /// Ratio of total current balance to high credit/credit limit for all bankcard accounts.
         /// </summary>
         [DeserializeAs("bcUtil")]
-        public decimal bcUtil { get; set; } //nullable: Yes
+        public decimal? BankcardUtilization { get; set; } //nullable: Yes
 
         /// <summary>
         /// "The borrower's debt to income ratio, calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income."
         /// </summary>
         [DeserializeAs("dti")]
-        public decimal dti { get; set; } //nullable: Yes
+        public decimal? DebtToIncome { get; set; } //nullable: Yes
 
         /// <summary>
         /// The Number of 30+ days past-due incidences of delinquency in the borrower's credit file for the past 2 years.
         /// </summary>
         [DeserializeAs("delinq2Yrs")]
-        public int delinq2Yrs { get; set; } //nullable: Yes
+        public int? DelinquenciesPast2Years { get; set; } //nullable: Yes
 
         /// <summary>
         /// The past-due amount owed for the accounts on which the borrower is now delinquent.
         /// </summary>
         [DeserializeAs("delinqAmnt")]
-        public decimal delinqAmnt { get; set; } //nullable: Yes
+        public decimal? DelinquentAmount { get; set; } //nullable: Yes
 
         /// <summary>
         /// The date the borrower's earliest reported credit line was opened
         /// </summary>
         [DeserializeAs("earliestCrLine")]
-        public String earliestCrLine { get; set; } //nullable: Yes
+        public DateTime? EarliestCreditLineDate { get; set; } //nullable: Yes
 
         /// <summary>
         /// The lower boundary of range the borrower's FICO belongs to.
         /// </summary>
         [DeserializeAs("ficoRangeLow")]
-        public int ficoRangeLow { get; set; } //nullable: Yes
+        public int? FicoRangeLow { get; set; } //nullable: Yes
 
         /// <summary>
         /// The upper boundary of range the borrower's FICO belongs to.
         /// </summary>
         [DeserializeAs("ficoRangeHigh")]
-        public int ficoRangeHigh { get; set; } //nullable: Yes
+        public int? FicoRangeHigh { get; set; } //nullable: Yes
 
         /// <summary>
         /// The Number of inquiries by creditors during the past 6 months.
         /// </summary>
         [DeserializeAs("inqLast6Mths")]
-        public int inqLast6Mths { get; set; } //nullable: Yes
+        public int? InquiriesPast6Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// The Number of months since the borrower's last delinquency.
         /// </summary>
         [DeserializeAs("mthsSinceLastDelinq")]
-        public int mthsSinceLastDelinq { get; set; } //nullable: Yes
+        public int? MonthsSinceLastDelinquency { get; set; } //nullable: Yes
 
         /// <summary>
         /// The Number of months since the last public record.
         /// </summary>
         [DeserializeAs("mthsSinceLastRecord")]
-        public int mthsSinceLastRecord { get; set; } //nullable: Yes
+        public int? MonthsSinceLastPublicRecord { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent inquiry.
         /// </summary>
         [DeserializeAs("mthsSinceRecentInq")]
-        public int mthsSinceRecentInq { get; set; } //nullable: Yes
+        public int? MonthsSinceMostRecentInquiry { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent revolving delinquency.
         /// </summary>
         [DeserializeAs("mthsSinceRecentRevolDelinq")]
-        public int mthsSinceRecentRevolDelinq { get; set; } //nullable: Yes
+        public int? MonthsSinceMostRecentRevolvingDelinquency { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent bankcard account opened.
         /// </summary>
         [DeserializeAs("mthsSinceRecentBc")]
-        public int mthsSinceRecentBc { get; set; } //nullable: Yes
+        public int? MonthsSinceRecentBankcard { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of mortgage accounts.
         /// </summary>
         [DeserializeAs("mortAcc")]
-        public int mortAcc { get; set; } //nullable: Yes
+        public int? MortgageAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// The Number of open credit lines in the borrower's credit file.
         /// </summary>
         [DeserializeAs("openAcc")]
-        public int openAcc { get; set; } //nullable: Yes
+        public int? OpenAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of derogatory public records.
         /// </summary>
         [DeserializeAs("pubRec")]
-        public int pubRec { get; set; } //nullable: Yes
+        public int? PublicRecords { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total credit balance excluding mortgage.
         /// </summary>
         [DeserializeAs("totalBalExMort")]
-        public int totalBalExMort { get; set; } //nullable: Yes
+        public int? TotalBalanceExcludingMortgage { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total credit revolving balance.
         /// </summary>
         [DeserializeAs("revolBal")]
-        public decimal revolBal { get; set; } //nullable: Yes
+        public decimal? RevolvingBalance { get; set; } //nullable: Yes
 
         /// <summary>
         /// "Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit."
         /// </summary>
         [DeserializeAs("revolUtil")]
-        public decimal revolUtil { get; set; } //nullable: Yes
+        public decimal? RevolvingUtilization { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total bankcard high credit/credit limit.
         /// </summary>
         [DeserializeAs("totalBcLimit")]
-        public int totalBcLimit { get; set; } //nullable: Yes
+        public int? TotalBankcardLimit { get; set; } //nullable: Yes
 
         /// <summary>
         /// The total Number of credit lines currently in the borrower's credit file
@@ -515,7 +515,7 @@ namespace LendingClub.Models
         /// "It will indicate whether loan application is Individual or Joint. Valid values are ""INDIVIDUAL"" or ""JOINT"""
         /// </summary>
         [DeserializeAs("applicationType")]
-        public String applicationType { get; set; } //nullable: Yes
+        public string applicationType { get; set; } //nullable: Yes
 
         /// <summary>
         /// "The joint annual income if the applicationType is ""Joint""."
@@ -533,7 +533,7 @@ namespace LendingClub.Models
         /// "Indicates if joint income is verified by LC. Valid values are NOT_VERIFIED,SOURCE_VERIFIED and VERIFIED."
         /// </summary>
         [DeserializeAs("isIncVJoint")]
-        public String isIncVJoint { get; set; } //nullable: Yes
+        public string isIncVJoint { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of open trades in last 6 months.

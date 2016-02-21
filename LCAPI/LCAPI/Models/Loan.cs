@@ -491,133 +491,133 @@ namespace LendingClub.Models
         /// Number of open revolving accounts
         /// </summary>
         [DeserializeAs("numOpRevTl")]
-        public int numOpRevTl { get; set; } //nullable: Yes
+        public int? RevolvingAccountsOpen { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total collection amounts ever owed
         /// </summary>
         [DeserializeAs("totCollAmt")]
-        public int totCollAmt { get; set; } //nullable: Yes
+        public int? CollectionAmountEverOwed { get; set; } //nullable: Yes
 
         /// <summary>
         /// The total amount funded by investors for that loan at that point in time.
         /// </summary>
         [DeserializeAs("fundedAmount")]
-        public decimal fundedAmount { get; set; } //nullable: No
+        public decimal FundedAmount { get; set; } //nullable: No
 
         /// <summary>
         /// "The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value."
         /// </summary>
         [DeserializeAs("loanAmount")]
-        public decimal loanAmount { get; set; } //nullable: No
+        public decimal LoanAmount { get; set; } //nullable: No
 
         /// <summary>
         /// "It will indicate whether loan application is Individual or Joint. Valid values are ""INDIVIDUAL"" or ""JOINT"""
         /// </summary>
         [DeserializeAs("applicationType")]
-        public string applicationType { get; set; } //nullable: Yes
+        public string ApplicationType { get; set; } //nullable: Yes
 
         /// <summary>
         /// "The joint annual income if the applicationType is ""Joint""."
         /// </summary>
         [DeserializeAs("annualIncJoint")]
-        public decimal annualIncJoint { get; set; } //nullable: Yes
+        public decimal? AnnualIncomeJoint { get; set; } //nullable: Yes
 
         /// <summary>
         /// "The joint debt to joint income ratio. This field is populated if the applicationType is ""Joint"". Calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income."
         /// </summary>
         [DeserializeAs("dtiJoint")]
-        public decimal dtiJoint { get; set; } //nullable: Yes
+        public decimal? DebtToIncomeJoint { get; set; } //nullable: Yes
 
         /// <summary>
         /// "Indicates if joint income is verified by LC. Valid values are NOT_VERIFIED,SOURCE_VERIFIED and VERIFIED."
         /// </summary>
         [DeserializeAs("isIncVJoint")]
-        public string isIncVJoint { get; set; } //nullable: Yes
+        public string IsIncomeVerifiedJoint { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of open trades in last 6 months.
         /// </summary>
         [DeserializeAs("openAcc6m")]
-        public int openAcc6m { get; set; } //nullable: Yes
+        public int? AccountsOpenPast6Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of currently active installment trades.
         /// </summary>
         [DeserializeAs("openIl6m")]
-        public int openIl6m { get; set; } //nullable: Yes
+        public int? InstallmentAccountsActive { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of installment accounts opened in past 12 months.
         /// </summary>
         [DeserializeAs("openIl12m")]
-        public int openIl12m { get; set; } //nullable: Yes
+        public int? InstallmentAccountsOpenedPast12Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of installment accounts opened in past 24 months.
         /// </summary>
         [DeserializeAs("openIl24m")]
-        public int openIl24m { get; set; } //nullable: Yes
+        public int? InstallmentAccountsOpenedPast24Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent installment accounts opened.
         /// </summary>
         [DeserializeAs("mthsSinceRcntIl")]
-        public int mthsSinceRcntIl { get; set; } //nullable: Yes
+        public int? MonthsSinceRecentInstallmentAccount { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total current balance of all installment accounts.
         /// </summary>
         [DeserializeAs("totalBalIl")]
-        public decimal totalBalIl { get; set; } //nullable: Yes
+        public decimal? InstallmentBalance { get; set; } //nullable: Yes
 
         /// <summary>
         /// Ratio of total current balance to high credit/credit limit on all install acct.
         /// </summary>
         [DeserializeAs("iLUtil")]
-        public decimal iLUtil { get; set; } //nullable: Yes
+        public decimal? InstallmentUtilization { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of revolving trades opened in past 12 months.
         /// </summary>
         [DeserializeAs("openRv12m")]
-        public int openRv12m { get; set; } //nullable: Yes
+        public int? RevolvingAccountsOpenedPast12Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of revolving trades opened in past 24 months.
         /// </summary>
         [DeserializeAs("openRv24m")]
-        public int openRv24m { get; set; } //nullable: Yes
+        public int? RevolvingAccountsOpenedPast24Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Maximum current balance owed on all revolving accounts.
         /// </summary>
         [DeserializeAs("maxBalBc")]
-        public decimal maxBalBc { get; set; } //nullable: Yes
+        public decimal? RevolvingMaximumBalanceOwed { get; set; } //nullable: Yes
 
         /// <summary>
         /// Balance to credit limit on all trades.
         /// </summary>
         [DeserializeAs("allUtil")]
-        public decimal allUtil { get; set; } //nullable: Yes
+        public decimal? Utilization { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of personal finance inquiries.
         /// </summary>
         [DeserializeAs("inqFi")]
-        public int inqFi { get; set; } //nullable: Yes
+        public int? FinanceInquiries { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of credit union trades.
         /// </summary>
         [DeserializeAs("totalCuTl")]
-        public int totalCuTl { get; set; } //nullable: Yes
+        public int? CreditUnionAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of credit inquiries in past 12 months.
         /// </summary>
         [DeserializeAs("inqLast12m")]
-        public int inqLast12m { get; set; } //nullable: Yes
+        public int? InquiriesPast12Months { get; set; } //nullable: Yes
 
     }
 }

@@ -56,7 +56,6 @@ namespace LCAPI.Extensions
         /// <returns></returns>
         public static T GetAttribute<T>(this Type type) where T : Attribute
         {
-            //type.GetTypeInfo().getcu
 #if !WINDOWS_UWP
             return Attribute.GetCustomAttribute(type, typeof(T)) as T;
 #else

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ApiBase.cs" />
     <Compile Include="Api.cs" />
+    <Compile Include="JSON\DeserializeAsAttribute.cs" />
     <Compile Include="JSON\SimpleJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON\IDeserializer.cs" />

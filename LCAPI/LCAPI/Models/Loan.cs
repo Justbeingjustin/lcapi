@@ -57,6 +57,7 @@ namespace LendingClub.Models
         /// <summary>
         /// LC assigned loan subgrade
         /// </summary>
+        [DeserializeAs("subGrade")]
         public string Subgrade { get; set; }
 
         /// <summary>

@@ -17,10 +17,10 @@ namespace LcapiTests
         private Api CreateApiObject()
         {
             var cred = GetTestCredentials();
-            var customer = cred.Key;
+            var investorId = cred.Key;
             var apiKey = cred.Value;
 
-            return new Api(customer, apiKey);
+            return new Api(investorId, apiKey);
         }
 
         [Fact]

@@ -7,9 +7,9 @@ namespace LendingClub
 {
     public class Api : ApiBase
     {
-        public string Customer { get; }
+        public string InvestorId { get; }
 
-        public string Url => $"{BaseUrl}/accounts/{Customer}";
+        public string Url => $"{BaseUrl}/accounts/{InvestorId}";
 
         public IDeserializer JsonDeserializer { get; }
 
@@ -20,9 +20,9 @@ namespace LendingClub
             JsonDeserializer = JsonDeserializer ?? new JsonDeserializer();
         }
 
-        public Api(string customer, string apiKey) : this()
+        public Api(string investorId, string apiKey) : this()
         {
-            Customer = customer;
+            InvestorId = investorId;
 
             Client = new RestClient(JsonDeserializer, apiKey);
         }

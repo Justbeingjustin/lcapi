@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LendingClub.REST
+namespace LCAPI.REST
 {
     public class RestClient
     {
@@ -23,6 +23,9 @@ namespace LendingClub.REST
         public async Task<string> GetAsync(string url)
         {
             var response = await Client.GetAsync(url);
+            ValidateResponse(response);
+
+            var content = await response.Content.ReadAsStringAsync();
 
             Debugger.Break();
 

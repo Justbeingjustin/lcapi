@@ -5,24 +5,24 @@ using LendingClub.Models;
 
 namespace LendingClub
 {
-    public class Api : ApiBase
+    public class Account : ApiBase
     {
         public string InvestorId { get; }
 
         public string Url => $"{BaseUrl}/accounts/{InvestorId}";
         
-        public Api(string apiKey, string investorId) : base(apiKey)
+        public Account(string apiKey, string investorId) : base(apiKey)
         {
             InvestorId = investorId;
         }
 
         protected string SummaryUrl => $"{Url}/summary";
 
-        public Task<Summary> GetSummaryAsync()
+        public Task<AccountSummary> GetSummaryAsync()
         {
-            return Client.GetAsync<Summary>(SummaryUrl);
+            return Client.GetAsync<AccountSummary>(SummaryUrl);
         }
-        public Summary GetSummary()
+        public AccountSummary GetSummary()
         {
             return GetSummaryAsync().Result;
         }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using LCAPI.JSON;
 using LCAPI.REST;
+using LendingClub.Models;
 
 namespace LendingClub
 {
@@ -33,9 +28,10 @@ namespace LendingClub
         }
 
         protected string SummaryUrl => $"{Url}/summary";
-        public void Summary()
+
+        public Task<Summary> GetSummaryAsync()
         {
-            throw new NotImplementedException();
+            return Client.GetAsync<Summary>(SummaryUrl);
         }
     }
 }

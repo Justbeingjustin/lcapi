@@ -359,133 +359,133 @@ namespace LendingClub.Models
         /// Number of tax liens
         /// </summary>
         [DeserializeAs("taxLiens")]
-        public int taxLiens { get; set; } //nullable: Yes
+        public int? TaxLiens { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent 90-day or worse rating.
         /// </summary>
         [DeserializeAs("mthsSinceLastMajorDerog")]
-        public int mthsSinceLastMajorDerog { get; set; } //nullable: Yes
+        public int? MonthsSinceLastMajorDerogatory { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of satisfactory accounts
         /// </summary>
         [DeserializeAs("numSats")]
-        public int numSats { get; set; } //nullable: Yes
+        public int? SatisfactoryAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of accounts opened in past 12 months
         /// </summary>
         [DeserializeAs("numTlOpPast12m")]
-        public int numTlOpPast12m { get; set; } //nullable: Yes
+        public int? AccountsOpenedPast12Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent account opened
         /// </summary>
         [DeserializeAs("moSinRcntTl")]
-        public int moSinRcntTl { get; set; } //nullable: Yes
+        public int? MonthsSinceMostRecentAccount { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total high credit/credit limit
         /// </summary>
         [DeserializeAs("totHiCredLim")]
-        public int totHiCredLim { get; set; } //nullable: Yes
+        public int? TotalHighCreditLimit { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total current balance of all accounts
         /// </summary>
         [DeserializeAs("totCurBal")]
-        public int totCurBal { get; set; } //nullable: Yes
+        public int? TotalCurrentBalance { get; set; } //nullable: Yes
 
         /// <summary>
         /// Average current balance of all accounts
         /// </summary>
         [DeserializeAs("avgCurBal")]
-        public int avgCurBal { get; set; } //nullable: Yes
+        public int? AverageCurrentBalance { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of bankcard accounts
         /// </summary>
         [DeserializeAs("numBcTl")]
-        public int numBcTl { get; set; } //nullable: Yes
+        public int? BankcardAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of currently active bankcard accounts
         /// </summary>
         [DeserializeAs("numActvBcTl")]
-        public int numActvBcTl { get; set; } //nullable: Yes
+        public int? BankcardAccountsActive { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of satisfactory bankcard accounts
         /// </summary>
         [DeserializeAs("numBcSats")]
-        public int numBcSats { get; set; } //nullable: Yes
+        public int? BankcardAccountsSatisfactory { get; set; } //nullable: Yes
 
         /// <summary>
         /// Percent of trades never delinquent
         /// </summary>
         [DeserializeAs("pctTlNvrDlq")]
-        public int pctTlNvrDlq { get; set; } //nullable: Yes
+        public int? PercentageTradesNeverDelinquent { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of accounts 90 or more days past due in last 24 months
         /// </summary>
         [DeserializeAs("numTl90gDpd24m")]
-        public int numTl90gDpd24m { get; set; } //nullable: Yes
+        public int? Accounts90PastDuePast24Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of accounts currently 30 days past due (updated in past 2 months)
         /// </summary>
         [DeserializeAs("numTl30dpd")]
-        public int numTl30dpd { get; set; } //nullable: Yes
+        public int? Accounts30PastDue { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of accounts currently 120 days past due (updated in past 2 months)
         /// </summary>
         [DeserializeAs("numTl120dpd2m")]
-        public int numTl120dpd2m { get; set; } //nullable: Yes
+        public int? Accounts120PastDue { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of installment accounts
         /// </summary>
         [DeserializeAs("numIlTl")]
-        public int numIlTl { get; set; } //nullable: Yes
+        public int? InstallmentAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since oldest installment account opened
         /// </summary>
         [DeserializeAs("moSinOldIlAcct")]
-        public int moSinOldIlAcct { get; set; } //nullable: Yes
+        public int? MonthsSinceOldestInstallmentAccount { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of currently active revolving trades
         /// </summary>
         [DeserializeAs("numActvRevTl")]
-        public int numActvRevTl { get; set; } //nullable: Yes
+        public int? RevolvingTradesActive { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since oldest revolving account opened
         /// </summary>
         [DeserializeAs("moSinOldRevTlOp")]
-        public int moSinOldRevTlOp { get; set; } //nullable: Yes
+        public int? MonthsSinceOldestRevolvingAccount { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent revolving account opened
         /// </summary>
         [DeserializeAs("moSinRcntRevTlOp")]
-        public int moSinRcntRevTlOp { get; set; } //nullable: Yes
+        public int? MonthsSinceRecentRevolvingAccount { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total revolving high credit/credit limit
         /// </summary>
         [DeserializeAs("totalRevHiLim")]
-        public int totalRevHiLim { get; set; } //nullable: Yes
+        public int? RevolvingHighCreditLimit { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of revolving trades with balance > 0
         /// </summary>
         [DeserializeAs("numRevTlBalGt0")]
-        public int numRevTlBalGt0 { get; set; } //nullable: Yes
+        public int? RevolvingTradesWithBalance { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of open revolving accounts

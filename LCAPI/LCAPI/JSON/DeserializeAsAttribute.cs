@@ -26,6 +26,12 @@ namespace LCAPI.JSON
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, Inherited = false)]
     public sealed class DeserializeAsAttribute : Attribute
     {
+        public DeserializeAsAttribute(string name, bool attribute = false)
+        {
+            Name = name;
+            Attribute = attribute;
+        }
+
         /// <summary>
         /// The name to use for the serialized element
         /// </summary>

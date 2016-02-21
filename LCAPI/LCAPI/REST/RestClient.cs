@@ -6,15 +6,19 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using LCAPI.JSON;
 
 namespace LCAPI.REST
 {
     public class RestClient
     {
-        protected HttpClient Client = new HttpClient();
+        protected HttpClient Client { get; } = new HttpClient();
+        protected IDeserializer Deserializer { get; }
 
-        public RestClient(string apiKey)
+        public RestClient(IDeserializer deserializer, string apiKey)
         {
+            Deserializer = deserializer;
+
             //validation will fail because we don't specify the scheme
             //http://stackoverflow.com/a/29587268/102351
             Client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", apiKey);
@@ -25,11 +29,16 @@ namespace LCAPI.REST
             var response = await Client.GetAsync(url);
             ValidateResponse(response);
 
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        public async Task<T> GetAsync<T>(string url)
+        {
+            var response = await Client.GetAsync(url);
+            ValidateResponse(response);
+
             var content = await response.Content.ReadAsStringAsync();
-
-            Debugger.Break();
-
-            return "";
+            return Deserializer.Deserialize<T>(content);
         }
 
         private void ValidateResponse(HttpResponseMessage response)

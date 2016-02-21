@@ -57,11 +57,9 @@ namespace LCAPI.JSON
         private object Map(object target, IDictionary<string, object> data)
         {
             Type objType = target.GetType();
-            List<PropertyInfo> props = objType.GetProperties()
-                                              .Where(p => p.CanWrite)
-                                              .ToList();
+            var typeInfo = objType.GetTypeInfo();
 
-            foreach (PropertyInfo prop in props)
+            foreach (PropertyInfo prop in typeInfo.DeclaredProperties.Where(p => p.CanWrite))
             {
                 string name;
                 Type type = prop.PropertyType;

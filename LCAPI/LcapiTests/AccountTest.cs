@@ -6,7 +6,7 @@ using Xunit;
 
 namespace LcapiTests
 {
-    public class ApiTest
+    public class AccountTest
     {
         private KeyValuePair<string, string> GetTestCredentials()
         {

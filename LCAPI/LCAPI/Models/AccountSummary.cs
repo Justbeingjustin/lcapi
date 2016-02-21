@@ -9,7 +9,7 @@ namespace LendingClub.Models
     /// <summary>
     /// Summary of the investor's account.
     /// </summary>
-    public class Summary
+    public class AccountSummary
     {
         /// <summary>
         /// Available cash amount

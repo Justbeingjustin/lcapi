@@ -6,7 +6,7 @@ using Xunit;
 
 namespace LcapiTests
 {
-    public class ApiTest
+    public class AccountTest
     {
         private KeyValuePair<string, string> GetTestCredentials()
         {
@@ -14,13 +14,13 @@ namespace LcapiTests
             return new KeyValuePair<string, string>(lines.First(), lines.Last());
         }
 
-        private Api CreateApiObject()
+        private Account CreateApiObject()
         {
             var cred = GetTestCredentials();
             var investorId = cred.Key;
             var apiKey = cred.Value;
 
-            return new Api(investorId, apiKey);
+            return new Account(investorId, apiKey);
         }
 
         [Fact]

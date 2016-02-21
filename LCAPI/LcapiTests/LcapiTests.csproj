@@ -62,7 +62,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ApiTest.cs" />
+    <Compile Include="LoanTest.cs" />
+    <Compile Include="AccountTest.cs" />
     <Compile Include="RestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

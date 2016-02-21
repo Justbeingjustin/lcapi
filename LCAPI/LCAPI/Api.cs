@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using LCAPI.JSON;
+using LCAPI.REST;
+using LendingClub.Models;
 
 namespace LendingClub
 {
@@ -11,23 +9,29 @@ namespace LendingClub
     {
         public string Customer { get; }
 
-        protected string ApiKey { get; }
-
         public string Url => $"{BaseUrl}/accounts/{Customer}";
 
-        public Api(string customer, string apiKey) 
+        public IDeserializer JsonDeserializer { get; }
+
+        protected RestClient Client { get; }
+
+        private Api()
+        {
+            JsonDeserializer = JsonDeserializer ?? new JsonDeserializer();
+        }
+
+        public Api(string customer, string apiKey) : this()
         {
             Customer = customer;
-            ApiKey = apiKey;
+
+            Client = new RestClient(JsonDeserializer, apiKey);
         }
 
         protected string SummaryUrl => $"{Url}/summary";
-        public void Summary()
+
+        public Task<Summary> GetSummaryAsync()
         {
-            using (var client = new HttpClient())
-            {
-                
-            }
+            return Client.GetAsync<Summary>(SummaryUrl);
         }
     }
 }

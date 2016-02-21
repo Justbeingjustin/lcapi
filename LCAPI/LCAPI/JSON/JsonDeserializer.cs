@@ -37,7 +37,7 @@ namespace LCAPI.JSON
         {
             object json = SimpleJson.DeserializeObject(content);
 
-            if (!string.IsNullOrEmpty(this.RootElement))
+            if (this.RootElement.HasValue())
             {
                 IDictionary<string, object> dictionary = json as IDictionary<string, object>;
 
@@ -152,7 +152,7 @@ namespace LCAPI.JSON
         private IList BuildList(Type type, object parent)
         {
             IList list = (IList) Activator.CreateInstance(type);
-            Type listType = type.GetInterfaces()
+            Type listType = type.GetTypeInfo().ImplementedInterfaces
                                 .First
 #if !WINDOWS_UWP
                 (x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IList<>));
@@ -273,7 +273,7 @@ namespace LCAPI.JSON
             {
                 DateTime dt;
 
-                if (string.IsNullOrEmpty(this.DateFormat))
+                if (this.DateFormat.HasValue())
                 {
                     dt = DateTime.ParseExact(stringValue, this.DateFormat, this.Culture,
                         DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal);

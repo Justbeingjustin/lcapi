@@ -311,49 +311,49 @@ namespace LendingClub.Models
         /// The total Number of credit lines currently in the borrower's credit file
         /// </summary>
         [DeserializeAs("totalAcc")]
-        public int totalAcc { get; set; } //nullable: Yes
+        public int? TotalAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Total installment high credit/credit limit
         /// </summary>
         [DeserializeAs("totalIlHighCreditLimit")]
-        public int totalIlHighCreditLimit { get; set; } //nullable: Yes
+        public int? TotalInstallmentHighCreditLimit { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of revolving accounts
         /// </summary>
         [DeserializeAs("numRevAccts")]
-        public int numRevAccts { get; set; } //nullable: Yes
+        public int? RevolvingAccounts { get; set; } //nullable: Yes
 
         /// <summary>
         /// Months since most recent bankcard delinquency.
         /// </summary>
         [DeserializeAs("mthsSinceRecentBcDlq")]
-        public int mthsSinceRecentBcDlq { get; set; } //nullable: Yes
+        public int? MonthsSinceRecentBankcardDelinquency { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of public record bankruptcies.
         /// </summary>
         [DeserializeAs("pubRecBankruptcies")]
-        public int pubRecBankruptcies { get; set; } //nullable: Yes
+        public int? PublicRecordBankruptcies { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of accounts ever 120 or more days past due.
         /// </summary>
         [DeserializeAs("numAcctsEver120Ppd")]
-        public int numAcctsEver120Ppd { get; set; } //nullable: Yes
+        public int? AccountsEver120DaysPastDue { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of charge-offs within 12 months.
         /// </summary>
         [DeserializeAs("chargeoffWithin12Mths")]
-        public int chargeoffWithin12Mths { get; set; } //nullable: Yes
+        public int? ChargeOffsPast12Months { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of collections in 12 months excluding medical collections.
         /// </summary>
         [DeserializeAs("collections12MthsExMed")]
-        public int collections12MthsExMed { get; set; } //nullable: Yes
+        public int? CollectionsPast12MonthsExcludingMedical { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of tax liens

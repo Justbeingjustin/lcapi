@@ -17,8 +17,8 @@ namespace LcapiTests
         private Account CreateApiObject()
         {
             var cred = GetTestCredentials();
-            var investorId = cred.Key;
-            var apiKey = cred.Value;
+            var apiKey = cred.Key;
+            var investorId = cred.Value;
 
             return new Account(investorId, apiKey);
         }

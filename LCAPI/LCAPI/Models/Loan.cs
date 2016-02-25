@@ -85,8 +85,11 @@ namespace LendingClub.Models
         /// <summary>
         /// Indicates if income is verified by LC
         /// </summary>
+        /// <remarks>
+        /// Values are: REQUESTED, NOT_VERIFIED, SOURCE_VERIFIED and VERIFIED.
+        /// </remarks>
         [DeserializeAs("isIncV")]
-        public string IsIncomeVerified { get; set; }
+        public IncomeVerification IsIncomeVerified { get; set; }
 
         /// <summary>
         /// The date which the borrower accepted the offer
@@ -540,10 +543,13 @@ namespace LendingClub.Models
         public decimal? DebtToIncomeJoint { get; set; } //nullable: Yes
 
         /// <summary>
-        /// "Indicates if joint income is verified by LC. Valid values are NOT_VERIFIED,SOURCE_VERIFIED and VERIFIED."
+        /// Indicates if joint income is verified by LC.
         /// </summary>
+        /// <remarks>
+        /// Valid values are NOT_VERIFIED, SOURCE_VERIFIED and VERIFIED.
+        /// </remarks>
         [DeserializeAs("isIncVJoint")]
-        public string IsIncomeVerifiedJoint { get; set; } //nullable: Yes
+        public IncomeVerification IsIncomeVerifiedJoint { get; set; } //nullable: Yes
 
         /// <summary>
         /// Number of open trades in last 6 months.

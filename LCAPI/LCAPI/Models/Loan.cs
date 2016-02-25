@@ -125,9 +125,13 @@ namespace LendingClub.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// A category provided by the borrower for the loan request. Values are: debt_consolidation, medical, home_improvement, renewable_energy, small_business, wedding, vacation, moving, house, car, major_purchase, credit_card, other
+        /// A category provided by the borrower for the loan request.
         /// </summary>
-        public string Purpose { get; set; }
+        /// <remarks>
+        /// Values are: debt_consolidation, medical, home_improvement, renewable_energy, small_business, wedding, vacation, moving, house, car, major_purchase, credit_card, other
+        /// </remarks>
+        [DeserializeAs("purpose")]
+        public LoanPurpose Purpose { get; set; }
 
         /// <summary>
         /// The first 3 numbers of the ZIP code provided by the borrower in the loan application.

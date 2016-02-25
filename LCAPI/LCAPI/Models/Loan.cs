@@ -122,9 +122,12 @@ namespace LendingClub.Models
         public DateTime? ReviewDate { get; set; }
 
         /// <summary>
-        /// The status of the loan during the listing period. Values: APPROVED, NOT_APPROVED.
+        /// The status of the loan during the listing period.
         /// </summary>
-        public string ReviewStatus { get; set; }
+        /// <remarks>
+        /// Values: APPROVED, NOT_APPROVED.
+        /// </remarks>
+        public ReviewStatus ReviewStatus { get; set; }
 
         /// <summary>
         /// Loan description provided by the borrower
@@ -309,7 +312,7 @@ namespace LendingClub.Models
         public decimal? RevolvingBalance { get; set; } //nullable: Yes
 
         /// <summary>
-        /// "Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit."
+        /// Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit.
         /// </summary>
         [DeserializeAs("revolUtil")]
         public decimal? RevolvingUtilization { get; set; } //nullable: Yes

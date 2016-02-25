@@ -8,6 +8,7 @@ namespace LendingClub.Models
 {
     public enum HomeOwnership
     {
+        None = 0,
         Rent,
         Own,
         Mortgage,

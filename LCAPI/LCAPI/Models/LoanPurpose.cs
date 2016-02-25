@@ -2,6 +2,7 @@
 {
     public enum LoanPurpose
     {
+        None = 0,
         DebtConsolidation,
         Medical,
         HomeImprovement,

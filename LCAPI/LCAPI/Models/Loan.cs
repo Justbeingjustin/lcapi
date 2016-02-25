@@ -52,6 +52,7 @@ namespace LendingClub.Models
         /// <summary>
         /// LC assigned loan grade
         /// </summary>
+        [DeserializeAs("grade")]
         public string Grade { get; set; }
 
         /// <summary>
@@ -67,9 +68,13 @@ namespace LendingClub.Models
         public int? EmploymentLength { get; set; }
 
         /// <summary>
-        /// The home ownership status provided by the borrower during registration. Our values are: RENT, OWN, MORTGAGE, OTHER
+        /// The home ownership status provided by the borrower during registration.
         /// </summary>
-        public string HomeOwnership { get; set; }
+        /// <remarks>
+        /// Values are: RENT, OWN, MORTGAGE, OTHER
+        /// </remarks>
+        [DeserializeAs("homeOwnership")]
+        public HomeOwnership HomeOwnership { get; set; }
 
         /// <summary>
         /// The annual income provided by the borrower during registration.

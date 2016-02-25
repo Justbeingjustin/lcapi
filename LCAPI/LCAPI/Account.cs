@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using LCAPI.JSON;
-using LCAPI.REST;
 using LendingClub.Models;
 
 namespace LendingClub
@@ -10,7 +8,7 @@ namespace LendingClub
         public string InvestorId { get; }
 
         public string Url => $"{BaseUrl}/accounts/{InvestorId}";
-        
+
         public Account(string apiKey, string investorId) : base(apiKey)
         {
             InvestorId = investorId;
@@ -22,6 +20,7 @@ namespace LendingClub
         {
             return Client.GetAsync<AccountSummary>(SummaryUrl);
         }
+
         public AccountSummary GetSummary()
         {
             return GetSummaryAsync().Result;

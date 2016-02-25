@@ -62,6 +62,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="EnumTest.cs" />
     <Compile Include="LoanTest.cs" />
     <Compile Include="AccountTest.cs" />
     <Compile Include="RestTest.cs" />

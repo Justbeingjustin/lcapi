@@ -32,7 +32,7 @@ namespace LCAPI.Extensions
     /// <summary>
     /// Reflection extensions
     /// </summary>
-    internal static class ReflectionExtensions
+    public static class ReflectionExtensions
     {
         /// <summary>
         /// Retrieve an attribute from a member (property)

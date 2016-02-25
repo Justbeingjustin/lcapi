@@ -20,6 +20,7 @@
 
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 
 #if FRAMEWORK
@@ -144,7 +145,22 @@ namespace LCAPI.Extensions
 
             return ret;
 #else
-            return Enum.Parse(type, value, true);
+
+            var enumTryParse = typeof(Enum).GetTypeInfo().DeclaredMethods.Single(mi => mi.Name == nameof(Enum.TryParse) && mi.GetParameters().Length == 3);
+            var genericEnumTryParse = enumTryParse.MakeGenericMethod(type);
+
+            foreach (var variant in value.GetNameVariants(culture))
+            {
+                var args = new[] { variant, true, Enum.ToObject(type, 0) };
+                bool success = (bool)genericEnumTryParse.Invoke(null, args);
+
+                if (success)
+                {
+                    return args[2];
+                }
+            }
+
+            throw new ArgumentException("No matching enum value found", nameof(value));
 #endif
         }
     }

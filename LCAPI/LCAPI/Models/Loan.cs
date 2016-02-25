@@ -525,19 +525,23 @@ namespace LendingClub.Models
         public decimal LoanAmount { get; set; } //nullable: No
 
         /// <summary>
-        /// "It will indicate whether loan application is Individual or Joint. Valid values are ""INDIVIDUAL"" or ""JOINT"""
+        /// It will indicate whether loan application is Individual or Joint.
         /// </summary>
+        /// <remarks>
+        /// Valid values are "INDIVIDUAL" or "JOINT"
+        /// </remarks>
         [DeserializeAs("applicationType")]
-        public string ApplicationType { get; set; } //nullable: Yes
+        public ApplicationType ApplicationType { get; set; } //nullable: Yes
 
         /// <summary>
-        /// "The joint annual income if the applicationType is ""Joint""."
+        /// The joint annual income if the applicationType is "Joint".
         /// </summary>
         [DeserializeAs("annualIncJoint")]
         public decimal? AnnualIncomeJoint { get; set; } //nullable: Yes
 
         /// <summary>
-        /// "The joint debt to joint income ratio. This field is populated if the applicationType is ""Joint"". Calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income."
+        /// The joint debt to joint income ratio. This field is populated if the applicationType is "Joint".
+        /// Calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income.
         /// </summary>
         [DeserializeAs("dtiJoint")]
         public decimal? DebtToIncomeJoint { get; set; } //nullable: Yes

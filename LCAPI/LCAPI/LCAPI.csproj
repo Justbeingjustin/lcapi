@@ -44,6 +44,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="JSON\DeserializeAsAttribute.cs" />
     <Compile Include="JSON\SimpleJson.cs" />
+    <Compile Include="Models\ApplicationType.cs" />
     <Compile Include="Models\IncomeVerification.cs" />
     <Compile Include="Models\HomeOwnership.cs" />
     <Compile Include="Models\Loan.cs" />

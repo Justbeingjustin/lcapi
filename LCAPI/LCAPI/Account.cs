@@ -14,6 +14,8 @@ namespace LendingClub
             InvestorId = investorId;
         }
 
+        #region Summary
+
         protected string SummaryUrl => $"{Url}/summary";
 
         public Task<AccountSummary> GetSummaryAsync()
@@ -21,9 +23,17 @@ namespace LendingClub
             return Client.GetAsync<AccountSummary>(SummaryUrl);
         }
 
-        public AccountSummary GetSummary()
+        #endregion
+
+        #region AvailableCash
+
+        protected string AvailableCashUrl => $"{Url}/availablecash";
+
+        public Task<AccountAvailableCash> GetAvailableCashAsync()
         {
-            return GetSummaryAsync().Result;
+            return Client.GetAsync<AccountAvailableCash>(AvailableCashUrl);
         }
+
+        #endregion
     }
 }

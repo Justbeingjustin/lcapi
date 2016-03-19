@@ -53,6 +53,8 @@
     <Compile Include="Models\LoanListing.cs" />
     <Compile Include="Models\AccountSummary.cs" />
     <Compile Include="Models\LoanPurpose.cs" />
+    <Compile Include="Models\AccountTransferFunds.cs" />
+    <Compile Include="Models\TransferFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON\IDeserializer.cs" />
     <Compile Include="JSON\JsonDeserializer.cs" />

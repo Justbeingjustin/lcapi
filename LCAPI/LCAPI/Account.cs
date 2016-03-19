@@ -25,13 +25,31 @@ namespace LendingClub
 
         #endregion
 
-        #region AvailableCash
+        #region Available Cash
 
         protected string AvailableCashUrl => $"{Url}/availablecash";
 
         public Task<AccountAvailableCash> GetAvailableCashAsync()
         {
             return Client.GetAsync<AccountAvailableCash>(AvailableCashUrl);
+        }
+
+        #endregion
+
+        #region Transfer Funds
+
+        protected string AddFundsUrl => $"{Url}/funds/add";
+
+        public Task<AccountAvailableCash> AddFundsAsync()
+        {
+            return Client.GetAsync<AccountAvailableCash>(AddFundsUrl);
+        }
+
+        protected string WithdrawFundsUrl => $"{Url}/funds/withdraw";
+
+        public Task<AccountAvailableCash> WithdrawFundsAsync()
+        {
+            return Client.GetAsync<AccountAvailableCash>(WithdrawFundsUrl);
         }
 
         #endregion

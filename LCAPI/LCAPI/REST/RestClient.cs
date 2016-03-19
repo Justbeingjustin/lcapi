@@ -30,10 +30,7 @@ namespace LCAPI.REST
 
         public async Task<T> GetAsync<T>(string url)
         {
-            var response = await Client.GetAsync(url);
-            ValidateResponse(response);
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await GetAsync(url);
             return Deserializer.Deserialize<T>(content);
         }
 
@@ -47,10 +44,7 @@ namespace LCAPI.REST
 
         public async Task<T> PostAsync<T>(string url, HttpContent content)
         {
-            var response = await Client.PostAsync(url, content);
-            ValidateResponse(response);
-
-            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseContent = await PostAsync(url, content);
             return Deserializer.Deserialize<T>(responseContent);
         }
 

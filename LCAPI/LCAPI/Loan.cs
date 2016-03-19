@@ -5,6 +5,9 @@ using LendingClub.Models;
 
 namespace LendingClub
 {
+    /// <summary>
+    /// Provides the details of the loans from the Lending Club platform.
+    /// </summary>
     public class Loan : ApiBase
     {
         public string Url => $"{BaseUrl}/loans";

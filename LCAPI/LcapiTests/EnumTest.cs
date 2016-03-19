@@ -29,9 +29,15 @@ namespace LcapiTests
         [InlineData("major_purchase", LoanPurpose.MajorPurchase)]
         [InlineData("credit_card", LoanPurpose.CreditCard)]
         [InlineData("other", LoanPurpose.Other)]
+        [InlineData("LOAD_NOW", TransferFrequency.LoadNow)]
+        [InlineData("LOAD_ONCE", TransferFrequency.LoadOnce)]
+        [InlineData("LOAD_WEEKLY", TransferFrequency.LoadWeekly)]
+        [InlineData("LOAD_BIWEEKLY", TransferFrequency.LoadBiWeekly)]
+        [InlineData("LOAD_ON_DAY_1_AND_16", TransferFrequency.LoadOnDay1And16)]
+        [InlineData("LOAD_MONTHLY", TransferFrequency.LoadMonthly)]
         public void EnumParseTest(string stringValue, Enum enumValue)
         {
-            var parsedValue = typeof (LoanPurpose).FindEnumValue(stringValue, CultureInfo.CurrentCulture);
+            var parsedValue = enumValue.GetType().FindEnumValue(stringValue, CultureInfo.CurrentCulture);
             Assert.Equal(parsedValue, enumValue);
         }
     }

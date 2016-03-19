@@ -14,18 +14,21 @@ namespace LendingClub
         public static string Version { get; } = "v1";
         public static string BaseUrl { get; } = $"https://api.lendingclub.com/api/investor/{Version}";
 
-        public IDeserializer Deserializer { get; }
+        protected IDeserializer Deserializer { get; }
         
-        protected RestClient Client { get; }
+        protected IRestClient Client { get; }
 
         protected ApiBase()
         {
             Deserializer = Deserializer ?? new JsonDeserializer();
+            Client = Client ?? new RestClient(Deserializer);
         }
 
         protected ApiBase(string apiKey) : this()
         {
-            Client = new RestClient(Deserializer, apiKey);
+            //validation will fail because we don't specify the scheme
+            //http://stackoverflow.com/a/29587268/102351
+            Client.RequestHeaders.TryAddWithoutValidation("Authorization", apiKey);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿#region License
+﻿#region RestSharp License
 
 //   Copyright 2010 John Sheehan
 //

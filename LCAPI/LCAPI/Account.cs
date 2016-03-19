@@ -40,7 +40,7 @@ namespace LendingClub
 
         protected string AddFundsUrl => $"{Url}/funds/add";
 
-        public Task<AccountAvailableCash> AddFundsAsync()
+        public Task<AccountAvailableCash> AddFundsAsync(decimal amount)
         {
             return Client.GetAsync<AccountAvailableCash>(AddFundsUrl);
         }

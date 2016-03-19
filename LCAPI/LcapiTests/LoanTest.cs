@@ -26,7 +26,7 @@ namespace LcapiTests
         public void ListingTest()
         {
             var api = CreateApiObject();
-            var listing = api.GetListing();
+            var listing = api.GetListingAsync().Result;
 
             Assert.NotNull(listing);
         }

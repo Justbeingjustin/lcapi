@@ -26,7 +26,7 @@ namespace LcapiTests
         [Fact]
         public void RoundTripSerializationTest()
         {
-            var x = new AccountTransferFunds
+            var x = new AccountAddFunds
             {
                 Amount = 5123.5125m,
                 Frequency = TransferFrequency.LoadOnDay1And16,
@@ -34,7 +34,7 @@ namespace LcapiTests
                 EndDate = DateTime.Parse("12/19/2017")
             };
             var str = _serializer.Serialize(x);
-            var y = _deserializer.Deserialize<AccountTransferFunds>(str);
+            var y = _deserializer.Deserialize<AccountAddFunds>(str);
 
             Assert.Equal(x.Amount, y.Amount);
             Assert.Equal(x.Frequency, y.Frequency);

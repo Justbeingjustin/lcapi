@@ -11,6 +11,7 @@ namespace LendingClub.Models
         // Valid values are "INDIVIDUAL" or "JOINT"
         None = 0,
         Individual,
-        Joint
+        Joint,
+        DirectPay
     }
 }

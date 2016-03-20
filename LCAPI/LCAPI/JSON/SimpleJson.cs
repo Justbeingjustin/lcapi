@@ -159,9 +159,9 @@ namespace LCAPI.JSON
         internal static object GetAtIndex(IDictionary<string, object> obj, int index)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
             if (index >= obj.Count)
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException(nameof(index));
             int i = 0;
             foreach (KeyValuePair<string, object> o in obj)
                 if (i++ == index)
@@ -277,7 +277,7 @@ namespace LCAPI.JSON
         public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             int num = Count;
             foreach (KeyValuePair<string, object> kvp in this)
             {
@@ -361,7 +361,7 @@ namespace LCAPI.JSON
         {
             // <pex>
             if (binder == null)
-                throw new ArgumentNullException("binder");
+                throw new ArgumentNullException(nameof(binder));
             // </pex>
             Type targetType = binder.Type;
 
@@ -388,7 +388,7 @@ namespace LCAPI.JSON
         {
             // <pex>
             if (binder == null)
-                throw new ArgumentNullException("binder");
+                throw new ArgumentNullException(nameof(binder));
             // </pex>
             return _members.Remove(binder.Name);
         }
@@ -404,7 +404,7 @@ namespace LCAPI.JSON
         /// </returns>
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
         {
-            if (indexes == null) throw new ArgumentNullException("indexes");
+            if (indexes == null) throw new ArgumentNullException(nameof(indexes));
             if (indexes.Length == 1)
             {
                 result = ((IDictionary<string, object>)this)[(string)indexes[0]];
@@ -445,7 +445,7 @@ namespace LCAPI.JSON
         /// </returns>
         public override bool TrySetIndex(SetIndexBinder binder, object[] indexes, object value)
         {
-            if (indexes == null) throw new ArgumentNullException("indexes");
+            if (indexes == null) throw new ArgumentNullException(nameof(indexes));
             if (indexes.Length == 1)
             {
                 ((IDictionary<string, object>)this)[(string)indexes[0]] = value;
@@ -466,7 +466,7 @@ namespace LCAPI.JSON
         {
             // <pex>
             if (binder == null)
-                throw new ArgumentNullException("binder");
+                throw new ArgumentNullException(nameof(binder));
             // </pex>
             _members[binder.Name] = value;
             return true;
@@ -886,9 +886,9 @@ namespace LCAPI.JSON
         {
             // http://www.java2s.com/Open-Source/CSharp/2.6.4-mono-.net-core/System/System/Char.cs.htm
             if (utf32 < 0 || utf32 > 0x10FFFF)
-                throw new ArgumentOutOfRangeException("utf32", "The argument must be from 0 to 0x10FFFF.");
+                throw new ArgumentOutOfRangeException(nameof(utf32), "The argument must be from 0 to 0x10FFFF.");
             if (0xD800 <= utf32 && utf32 <= 0xDFFF)
-                throw new ArgumentOutOfRangeException("utf32", "The argument must not be in surrogate pair range.");
+                throw new ArgumentOutOfRangeException(nameof(utf32), "The argument must not be in surrogate pair range.");
             if (utf32 < 0x10000)
                 return new string((char) utf32, 1);
             utf32 -= 0x10000;
@@ -1345,7 +1345,7 @@ namespace LCAPI.JSON
         public virtual object DeserializeObject(object value, Type type)
         {
             if (type == null)
-                throw new ArgumentNullException("type");
+                throw new ArgumentNullException(nameof(type));
             string str = value as string;
 
             if (type == typeof(Guid) && string.IsNullOrEmpty(str))
@@ -1521,7 +1521,7 @@ namespace LCAPI.JSON
         protected virtual bool TrySerializeUnknownTypes(object input, out object output)
         {
             if (input == null)
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             output = null;
             Type type = input.GetType();
             if (type.FullName == null)
@@ -1915,12 +1915,12 @@ namespace LCAPI.JSON
             public static GetDelegate GetGetMethodByReflection(PropertyInfo propertyInfo)
             {
                 MethodInfo methodInfo = GetGetterMethodInfo(propertyInfo);
-                return delegate(object source) { return methodInfo.Invoke(source, EmptyObjects); };
+                return delegate (object source) { return methodInfo.Invoke(source, EmptyObjects); };
             }
 
             public static GetDelegate GetGetMethodByReflection(FieldInfo fieldInfo)
             {
-                return delegate(object source) { return fieldInfo.GetValue(source); };
+                return delegate (object source) { return fieldInfo.GetValue(source); };
             }
 
 #if !SIMPLE_JSON_NO_LINQ_EXPRESSION

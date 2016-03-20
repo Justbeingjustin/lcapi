@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using LendingClub;
@@ -28,6 +29,17 @@ namespace LcapiTests
         {
             var api = CreateApiObject();
             var task = api.GetSummaryAsync();
+            var result = task.Result;
+
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void AddFundsTest()
+        {
+            var api = CreateApiObject();
+
+            var task = api.AddFundsScheduledAsync(1.23m, DateTime.Parse("02/01/2040"));
             var result = task.Result;
 
             Assert.NotNull(result);

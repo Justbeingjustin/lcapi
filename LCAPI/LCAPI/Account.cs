@@ -183,5 +183,20 @@ namespace LendingClub
         }
 
         #endregion
+
+        #region Pending Transfers
+
+        protected string PendingTransfersUrl => $"{Url}/funds/pending";
+
+        /// <summary>
+        /// Lists pending fund transfers for the investor's account
+        /// </summary>
+        /// <returns>Pending fund transfers for the investor's account</returns>
+        public Task<AccountPendingTransfers> GetPendingTransfersAsync()
+        {
+            return Client.GetAsync<AccountPendingTransfers>(PendingTransfersUrl);
+        }
+
+        #endregion
     }
 }

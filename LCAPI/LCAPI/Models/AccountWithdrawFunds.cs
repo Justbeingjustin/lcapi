@@ -2,6 +2,9 @@
 
 namespace LendingClub.Models
 {
+    /// <summary>
+    /// Details of a transaction to withdraw funds
+    /// </summary>
     public class AccountWithdrawFunds
     {
         /// <summary>

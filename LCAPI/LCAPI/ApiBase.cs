@@ -14,17 +14,9 @@ namespace LendingClub
         public static string Version { get; } = "v1";
         public static string BaseUrl { get; } = $"https://api.lendingclub.com/api/investor/{Version}";
 
-        protected IDeserializer Deserializer { get; }
-        
-        protected IRestClient Client { get; }
+        protected IRestClient Client { get; set; } = new RestClient();
 
-        protected ApiBase()
-        {
-            Deserializer = Deserializer ?? new JsonDeserializer();
-            Client = Client ?? new RestClient(Deserializer);
-        }
-
-        protected ApiBase(string apiKey) : this()
+        protected ApiBase(string apiKey)
         {
             //validation will fail because we don't specify the scheme
             //http://stackoverflow.com/a/29587268/102351

@@ -10,15 +10,11 @@ namespace LCAPI.REST
 {
     public class RestClient : IRestClient
     {
-        protected HttpClient Client { get; } = new HttpClient();
-        protected IDeserializer Deserializer { get; }
-
-        public RestClient(IDeserializer deserializer)
-        {
-            Deserializer = deserializer;
-        }
-
         public HttpRequestHeaders RequestHeaders => Client.DefaultRequestHeaders;
+
+        protected HttpClient Client { get; } = new HttpClient();
+
+        protected virtual IDeserializer Deserializer { get; } = new JsonDeserializer();
 
         public async Task<string> GetAsync(string url)
         {

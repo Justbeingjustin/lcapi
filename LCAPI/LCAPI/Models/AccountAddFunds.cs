@@ -3,7 +3,7 @@ using LCAPI.JSON;
 
 namespace LendingClub.Models
 {
-    public class AccountTransferFunds
+    public class AccountAddFunds
     {
         /// <summary>
         ///     Investor ID

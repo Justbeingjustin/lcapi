@@ -46,6 +46,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="JSON\DeserializeAsAttribute.cs" />
     <Compile Include="JSON\SimpleJson.cs" />
+    <Compile Include="Models\AccountWithdrawFunds.cs" />
     <Compile Include="Models\AccountAvailableCash.cs" />
     <Compile Include="Models\ApplicationType.cs" />
     <Compile Include="Models\ReviewStatus.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Models\LoanListing.cs" />
     <Compile Include="Models\AccountSummary.cs" />
     <Compile Include="Models\LoanPurpose.cs" />
-    <Compile Include="Models\AccountTransferFunds.cs" />
+    <Compile Include="Models\AccountAddFunds.cs" />
     <Compile Include="Models\TransferFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON\IDeserializer.cs" />

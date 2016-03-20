@@ -44,5 +44,16 @@ namespace LcapiTests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void WithdrawFundsTest()
+        {
+            var api = CreateApiObject();
+
+            var task = api.WithdrawFundsAsync(1.23m);
+            var result = task.Result;
+
+            Assert.NotNull(result);
+        }
     }
 }

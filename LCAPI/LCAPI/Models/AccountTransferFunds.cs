@@ -1,40 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LCAPI.JSON;
 
 namespace LendingClub.Models
 {
     public class AccountTransferFunds
     {
         /// <summary>
-        /// Investor ID
+        ///     Investor ID
         /// </summary>
         public int InvestorId { get; set; }
 
         /// <summary>
-        /// Amount of funds
+        ///     Amount of funds
         /// </summary>
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// Frequency of funds transfer
+        ///     Frequency of funds transfer
         /// </summary>
-        public TransferFrequency TransferFrequency { get; set; }
+        [DeserializeAs("frequency")]
+        public TransferFrequency Frequency { get; set; }
 
         /// <summary>
-        /// Recurring transfer start date or transfer date for one-time transfers
+        ///     Recurring transfer start date or transfer date for one-time transfers
         /// </summary>
+        [DeserializeAs("startD")]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Recurring transfer end date or null in case of one-time transfers
+        ///     Recurring transfer end date or null in case of one-time transfers
         /// </summary>
+        [DeserializeAs("endD")]
         public DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Estimated start date of funds transfer
+        ///     Estimated start date of funds transfer
         /// </summary>
         public DateTime EstimatedFundsTransferDate { get; set; }
     }

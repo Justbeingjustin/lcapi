@@ -21,11 +21,5 @@ namespace LCAPI.JSON
     public interface IDeserializer
     {
         T Deserialize<T>(string content);
-
-        string RootElement { get; set; }
-
-        string Namespace { get; set; }
-
-        string DateFormat { get; set; }
     }
 }

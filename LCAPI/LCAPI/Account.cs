@@ -41,12 +41,12 @@ namespace LendingClub
 
         protected string AddFundsUrl => $"{Url}/funds/add";
 
-        private Task<AccountTransferFunds> AddFundsAsync<T>(T request)
+        private Task<AccountAddFunds> AddFundsAsync<T>(T request)
         {
-            return Client.PostAsync<AccountTransferFunds, T>(AddFundsUrl, request);
+            return Client.PostAsync<AccountAddFunds, T>(AddFundsUrl, request);
         }
 
-        public Task<AccountTransferFunds> AddFundsNowAsync(decimal amount)
+        public Task<AccountAddFunds> AddFundsNowAsync(decimal amount)
         {
             return AddFundsAsync(new
             {
@@ -55,7 +55,7 @@ namespace LendingClub
             });
         }
 
-        public Task<AccountTransferFunds> AddFundsScheduledAsync(decimal amount, DateTime startDate)
+        public Task<AccountAddFunds> AddFundsScheduledAsync(decimal amount, DateTime startDate)
         {
             return AddFundsAsync(new
             {
@@ -65,7 +65,7 @@ namespace LendingClub
             });
         }
 
-        public Task<AccountTransferFunds> AddFundsRecurringWeeklyAsync(decimal amount, DateTime startDate,
+        public Task<AccountAddFunds> AddFundsRecurringWeeklyAsync(decimal amount, DateTime startDate,
             DateTime endDate)
         {
             return AddFundsAsync(new
@@ -77,7 +77,7 @@ namespace LendingClub
             });
         }
 
-        public Task<AccountTransferFunds> AddFundsRecurringBiWeeklyAsync(decimal amount, DateTime startDate,
+        public Task<AccountAddFunds> AddFundsRecurringBiWeeklyAsync(decimal amount, DateTime startDate,
             DateTime endDate)
         {
             return AddFundsAsync(new
@@ -89,7 +89,7 @@ namespace LendingClub
             });
         }
 
-        public Task<AccountTransferFunds> AddFundsRecurringBiMonthlyAsync(decimal amount, DateTime startDate,
+        public Task<AccountAddFunds> AddFundsRecurringBiMonthlyAsync(decimal amount, DateTime startDate,
             DateTime endDate)
         {
             return AddFundsAsync(new
@@ -101,7 +101,7 @@ namespace LendingClub
             });
         }
 
-        public Task<AccountTransferFunds> AddFundsRecurringMonthlyAsync(decimal amount, DateTime startDate,
+        public Task<AccountAddFunds> AddFundsRecurringMonthlyAsync(decimal amount, DateTime startDate,
             DateTime endDate)
         {
             return AddFundsAsync(new
@@ -115,9 +115,14 @@ namespace LendingClub
 
         protected string WithdrawFundsUrl => $"{Url}/funds/withdraw";
 
-        public Task<AccountTransferFunds> WithdrawFundsAsync()
+        private Task<AccountWithdrawFunds> WithdrawFundsAsync<T>(T request)
         {
-            return Client.GetAsync<AccountTransferFunds>(WithdrawFundsUrl);
+            return Client.PostAsync<AccountWithdrawFunds, T>(WithdrawFundsUrl, request);
+        }
+
+        public Task<AccountWithdrawFunds> WithdrawFundsAsync(decimal amount)
+        {
+            return WithdrawFundsAsync(new { amount });
         }
 
         #endregion

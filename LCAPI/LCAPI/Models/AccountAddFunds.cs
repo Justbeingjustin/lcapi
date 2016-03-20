@@ -3,6 +3,9 @@ using LCAPI.JSON;
 
 namespace LendingClub.Models
 {
+    /// <summary>
+    /// Details of a transaction to add funds
+    /// </summary>
     public class AccountAddFunds
     {
         /// <summary>

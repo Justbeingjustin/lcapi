@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LendingClub.Models
 {
     /// <summary>
-    /// Provides the most up to date value of the cash available in the investor's account.
+    /// Value of the cash available in the investor's account.
     /// </summary>
     public class AccountAvailableCash
     {

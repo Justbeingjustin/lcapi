@@ -39,6 +39,8 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JSON\ISerializer.cs" />
+    <Compile Include="JSON\JsonSerializer.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="ApiBase.cs" />
     <Compile Include="Account.cs" />

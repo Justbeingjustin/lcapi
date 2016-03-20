@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using LCAPI.JSON;
 
@@ -14,7 +12,9 @@ namespace LCAPI.REST
 
         protected HttpClient Client { get; } = new HttpClient();
 
-        protected virtual IDeserializer Deserializer { get; } = new JsonDeserializer();
+        public IDeserializer Deserializer { get; set; } = new JsonDeserializer();
+
+        public ISerializer Serializer { get; set; } = new JsonSerializer();
 
         public async Task<string> GetAsync(string url)
         {
@@ -38,34 +38,19 @@ namespace LCAPI.REST
             return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task<T> PostAsync<T>(string url, HttpContent content)
+        public async Task<TResult> PostAsync<TResult, TRequest>(string url, TRequest content,
+            string mediaType = "application/json")
         {
-            var responseContent = await PostAsync(url, content);
-            return Deserializer.Deserialize<T>(responseContent);
+            var serialized = Serializer.Serialize(content);
+            var stringContent = new StringContent(serialized, Encoding.UTF8, mediaType);
+
+            var responseContent = await PostAsync(url, stringContent);
+            return Deserializer.Deserialize<TResult>(responseContent);
         }
 
-        private void ValidateResponse(HttpResponseMessage response)
+        protected virtual void ValidateResponse(HttpResponseMessage response)
         {
-            switch (response.StatusCode)
-            {
-                case HttpStatusCode.Unauthorized: //401
-                case HttpStatusCode.Forbidden: //403
-                    //TODO: add message
-                    throw new Exception();
-                case HttpStatusCode.BadRequest: //400
-                    //TODO: add message
-                    throw new Exception();
-                case HttpStatusCode.NotFound: //404
-                    //TODO: add message
-                    throw new Exception();
-                case HttpStatusCode.InternalServerError: //500
-                    //TODO: add message
-                    throw new Exception();
-                case HttpStatusCode.OK: //200
-                    break;
-                default:
-                    throw new NotImplementedException($"Response {response.StatusCode} was not expected");
-            }
+            response.EnsureSuccessStatusCode();
         }
     }
 }

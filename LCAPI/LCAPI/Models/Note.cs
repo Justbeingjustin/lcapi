@@ -11,7 +11,7 @@ namespace LendingClub.Models
         /// <summary>
         ///     Loan Status
         /// </summary>
-        public string LoanStatus { get; set; }
+        public LoanStatus LoanStatus { get; set; }
 
         /// <summary>
         ///     A unique LC assigned ID for the loan listing.

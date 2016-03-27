@@ -53,6 +53,7 @@
     <Compile Include="Models\AccountWithdrawFunds.cs" />
     <Compile Include="Models\AccountAvailableCash.cs" />
     <Compile Include="Models\ApplicationType.cs" />
+    <Compile Include="Models\LoanStatus.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\PendingFundsTransfer.cs" />
     <Compile Include="Models\TransferFrequency.cs" />

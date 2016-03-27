@@ -522,7 +522,9 @@ namespace LendingClub.Models
         public decimal FundedAmount { get; set; } //nullable: No
 
         /// <summary>
-        /// "The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value."
+        /// The listed amount of the loan applied for by the borrower.
+        /// If at some point in time, the credit department reduces the loan amount,
+        /// then it will be reflected in this value.
         /// </summary>
         [DeserializeAs("loanAmount")]
         public decimal LoanAmount { get; set; } //nullable: No

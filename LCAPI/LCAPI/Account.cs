@@ -225,5 +225,20 @@ namespace LendingClub
 
         #endregion
 
+        #region Notes Owned
+
+        protected string NotesOwnedUrl => $"{Url}/notes";
+
+        /// <summary>
+        /// Provides a list of notes that are owned by the investor
+        /// </summary>
+        /// <returns>List of notes owned by the investor</returns>
+        public Task<AccountOwnedNotes> GetOwnedNotesAsync()
+        {
+            return Client.GetAsync<AccountOwnedNotes>(NotesOwnedUrl);
+        }
+
+        #endregion
+
     }
 }

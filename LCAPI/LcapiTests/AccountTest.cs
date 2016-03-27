@@ -55,5 +55,16 @@ namespace LcapiTests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void PendingTransfersTest()
+        {
+            var api = CreateApiObject();
+
+            var task = api.GetPendingTransfersAsync();
+            var result = task.Result;
+
+            Assert.NotNull(result);
+        }
     }
 }

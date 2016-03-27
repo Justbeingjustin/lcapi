@@ -66,5 +66,20 @@ namespace LcapiTests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void CancelTransfersTest()
+        {
+            var api = CreateApiObject();
+
+            var task = api.GetPendingTransfersAsync();
+            var result = task.Result;
+
+            var toCancel = result.FirstOrDefault(r => r.Cancellable);
+            var cancelTask = api.CancelTransferAsync(toCancel.TransferId);
+            var cancelResult = cancelTask.Result;
+
+            Assert.NotNull(cancelResult);
+        }
     }
 }

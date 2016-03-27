@@ -96,6 +96,19 @@ namespace LCAPI.Extensions
                         .Replace("-", ""); // avoiding regex
         }
 
+        public static string ReplaceInvalidSpecialCharacters(this string input, string replacement = "_")
+        {
+            return input
+                .Replace(" ", replacement)
+                .Replace("-", replacement)
+                .Replace("[", replacement)
+                .Replace("]", replacement)
+                .Replace("(", replacement)
+                .Replace(")", replacement)
+                .Replace("__", "_")
+                .TrimEnd('_');
+        }
+
         /// <summary>
         /// Parses most common JSON date formats
         /// </summary>
@@ -356,7 +369,7 @@ namespace LCAPI.Extensions
         }
 
         /// <summary>
-        /// Add an undescore prefix to a pascasl-cased string
+        /// Add an undescore prefix to a pascal-cased string
         /// </summary>
         /// <param name="pascalCasedWord"></param>
         /// <returns></returns>
@@ -441,6 +454,8 @@ namespace LCAPI.Extensions
 #else
             yield return name.AddSpaces().ToLowerInvariant();
 #endif
+
+            yield return name.ReplaceInvalidSpecialCharacters().ToLowerInvariant();
         }
     }
 }

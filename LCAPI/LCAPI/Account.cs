@@ -190,17 +190,17 @@ namespace LendingClub
 
         protected string CancelTransferUrl => $"{Url}/funds/cancel";
 
-        private Task<object> CancelTransferAsync<T>(T request)
+        private Task<AccountCancelTransfer> CancelTransferAsync<T>(T request)
         {
-            return Client.PostAsync<object, T>(CancelTransferUrl, request);
+            return Client.PostAsync<AccountCancelTransfer, T>(CancelTransferUrl, request);
         }
 
-        public Task<object> CancelTransferAsync(IEnumerable<int> transferIds)
+        public Task<AccountCancelTransfer> CancelTransferAsync(IEnumerable<int> transferIds)
         {
             return CancelTransferAsync(transferIds.ToArray());
         }
 
-        public Task<object> CancelTransferAsync(params int[] transferIds)
+        public Task<AccountCancelTransfer> CancelTransferAsync(params int[] transferIds)
         {
             return CancelTransferAsync(new
             {

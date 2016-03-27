@@ -46,9 +46,12 @@
     <Compile Include="Account.cs" />
     <Compile Include="JSON\DeserializeAsAttribute.cs" />
     <Compile Include="JSON\SimpleJson.cs" />
+    <Compile Include="Models\CancelTransferResult.cs" />
+    <Compile Include="Models\AccountCancelTransfer.cs" />
     <Compile Include="Models\AccountWithdrawFunds.cs" />
     <Compile Include="Models\AccountAvailableCash.cs" />
     <Compile Include="Models\ApplicationType.cs" />
+    <Compile Include="Models\TransferStatus.cs" />
     <Compile Include="Models\ReviewStatus.cs" />
     <Compile Include="Models\IncomeVerification.cs" />
     <Compile Include="Models\HomeOwnership.cs" />

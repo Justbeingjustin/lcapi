@@ -53,6 +53,7 @@
     <Compile Include="Models\AccountAvailableCash.cs" />
     <Compile Include="Models\ApplicationType.cs" />
     <Compile Include="Models\PendingFundsTransfer.cs" />
+    <Compile Include="Models\TransferFrequency.cs" />
     <Compile Include="Models\TransferStatus.cs" />
     <Compile Include="Models\ReviewStatus.cs" />
     <Compile Include="Models\IncomeVerification.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Models\LoanPurpose.cs" />
     <Compile Include="Models\AccountAddFunds.cs" />
     <Compile Include="Models\TransferType.cs" />
-    <Compile Include="Models\TransferFrequency.cs" />
+    <Compile Include="Models\TransferRequestFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON\IDeserializer.cs" />
     <Compile Include="JSON\JsonDeserializer.cs" />

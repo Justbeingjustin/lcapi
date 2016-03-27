@@ -22,7 +22,7 @@ namespace LendingClub.Models
         ///     Frequency of funds transfer
         /// </summary>
         [DeserializeAs("frequency")]
-        public TransferFrequency Frequency { get; set; }
+        public TransferRequestFrequency Frequency { get; set; }
 
         /// <summary>
         ///     Recurring transfer start date or transfer date for one-time transfers

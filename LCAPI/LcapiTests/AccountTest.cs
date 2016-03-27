@@ -81,5 +81,16 @@ namespace LcapiTests
 
             Assert.NotNull(cancelResult);
         }
+
+        [Fact]
+        public void OwnedNotesTest()
+        {
+            var api = CreateApiObject();
+
+            var task = api.GetOwnedNotesAsync();
+            var result = task.Result;
+
+            Assert.NotNull(result);
+        }
     }
 }

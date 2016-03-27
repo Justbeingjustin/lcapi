@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LendingClub.Models;
 
@@ -183,5 +185,30 @@ namespace LendingClub
         }
 
         #endregion
+
+        #region Cancel Transfer
+
+        protected string CancelTransferUrl => $"{Url}/funds/cancel";
+
+        private Task<object> CancelTransferAsync<T>(T request)
+        {
+            return Client.PostAsync<object, T>(CancelTransferUrl, request);
+        }
+
+        public Task<object> CancelTransferAsync(IEnumerable<int> transferIds)
+        {
+            return CancelTransferAsync(transferIds.ToArray());
+        }
+
+        public Task<object> CancelTransferAsync(params int[] transferIds)
+        {
+            return CancelTransferAsync(new
+            {
+                transferIds
+            });
+        }
+
+        #endregion
+
     }
 }

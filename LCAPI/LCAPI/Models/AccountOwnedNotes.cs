@@ -6,7 +6,7 @@ using LCAPI.JSON;
 namespace LendingClub.Models
 {
     /// <summary>
-    /// Pending fund transfers for the investor's account
+    /// List of notes that are owned by the investor
     /// </summary>
     public class AccountOwnedNotes : IReadOnlyList<Note>
     {

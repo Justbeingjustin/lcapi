@@ -29,7 +29,7 @@ namespace LcapiTests
             var x = new AccountAddFunds
             {
                 Amount = 5123.5125m,
-                Frequency = TransferFrequency.LoadOnDay1And16,
+                Frequency = TransferRequestFrequency.LoadOnDay1And16,
                 StartDate = DateTime.Parse("2/29/2016"),
                 EndDate = DateTime.Parse("12/19/2017")
             };

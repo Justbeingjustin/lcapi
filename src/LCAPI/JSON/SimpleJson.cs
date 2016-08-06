@@ -25,9 +25,6 @@
 // NOTE: uncomment the following line to make JsonArray and JsonObject class internal.
 #define SIMPLE_JSON_OBJARRAYINTERNAL
 
-// NOTE: uncomment the following line to enable dynamic support.
-#define SIMPLE_JSON_DYNAMIC
-
 // NOTE: uncomment the following line to enable DataContract support.
 //#define SIMPLE_JSON_DATACONTRACT
 
@@ -65,7 +62,6 @@ using System.Dynamic;
 #endif
 using System.Globalization;
 using System.Reflection;
-using System.Runtime.Serialization;
 using System.Text;
 using LCAPI.JSON.Reflection;
 
@@ -544,7 +540,7 @@ namespace LCAPI.JSON
             object obj;
             if (TryDeserializeObject(json, out obj))
                 return obj;
-            throw new SerializationException("Invalid JSON string");
+            throw new InvalidOperationException("Invalid JSON string");
         }
 
         /// <summary>
